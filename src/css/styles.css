@@ -1,0 +1,104 @@
+  * {
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #E2E2E2;
+  font-size: 1em;
+  color: #181B0F;
+}
+
+header {
+  text-align: center;
+  margin: 5px;
+}
+header > img {
+  min-width: 20px;
+  max-width: 100px;
+  min-height: 50px;
+  max-height: 100px;
+  margin: 5px;
+}
+header > p {
+  margin: 5px;
+}
+hr {
+  margin: 8px;
+  color: #181B0F;
+}
+
+/* CONTATOS */
+header > Div > a {
+  min-width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+}
+/* tamanho dos icones: */
+header > Div > Div > a > img {
+  width: 40px;
+  margin: 10px;
+}
+/* ENTRE EM CONTATO */
+header > h3 {
+  margin: auto;
+  width: 220px;
+  min-height: 20px;
+  max-height: 35px;
+  margin-bottom: 6px;
+}
+/* titulos grifados da página. */
+.faixa {
+  color: #E2E2E2;
+  background-color: #6b8a17b0;
+  box-shadow: 10px 5px 5px #B9C39E;
+}
+
+body {
+  text-align: center;
+}
+
+.intro > p {
+  margin: 6px;
+}
+
+/* criar um contêiner flexível que organiza os produtos */
+.produtos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 5%;
+}
+/* aplicada a cada produto, definindo sua largura, altura, margem inferior e cor de fundo */
+.item {
+  width: 360px;
+  margin: 20px;
+  height: 400px;
+  box-sizing: border-box;
+  outline: solid rgba(0, 0, 0, 0.137) 1px;
+  border-radius: 5%;
+}
+.item > h2 {
+  font-size: 1.5em;
+}
+.item > h4 {
+  font-size: 1.1em;
+}
+.item > img {
+  width: 95%;
+  border-radius: 10%;
+}
+/* BOTÃO DE CORES */
+.item > Div > Button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.item > Div > #laranja {
+  background-color: #BF3E0B;
+}
+.item > Div > #preto {
+  background-color: #000000;
+}
+.item > Div > #branco {
+  background-color: #ffffff;
+}
