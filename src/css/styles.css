@@ -1,11 +1,11 @@
   * {
   margin: 0;
   box-sizing: border-box;
-  background-color: #E2E2E2;
+  background-color: #f1f1f1;
   font-size: 1em;
   color: #181B0F;
 }
-
+/* background-color: #E2E2E2; */
 header {
   text-align: center;
   margin: 5px;
@@ -88,10 +88,10 @@ body {
   outline: solid rgba(0, 0, 0, 0.137) 1px;
   border-radius: 5%;
 }
-/* .item > hr {
+.item > hr {
   width: 90%;
   margin: auto;
-} */
+}
 /* BOTÃO DE CORES */
 .item > Div > Button {
   width: 25px;
@@ -107,8 +107,23 @@ body {
 .item > Div > #branco {
   background-color: #ffffff;
 }
-/* .item > Div {
-  
+.cores {
   display: flex;
-  flex-direction: row;
-} */
+  justify-content: space-evenly;
+  margin: 1%;
+}
+.cores > p {
+  font-size: 1.5em;
+  padding-right: 40px;
+}
+/* PREÇO DOS PRODUTOS */
+.preco {
+  background-color: #e2e2e294;
+  width: 135px;
+  padding: 8px;
+  font-size: 2em;
+  text-align: start;
+  margin: 3px 20px;
+  outline: solid rgba(0, 0, 0, 0.137) 1px;
+  border-radius: 5%;
+}
