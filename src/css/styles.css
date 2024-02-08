@@ -56,7 +56,12 @@ header > h3 {
 .faixa {
   color: #E2E2E2;
   background-color: #6b8a17b0;
-  box-shadow: 10px 5px 5px #B9C39E;
+  box-shadow: 5px 15px 20px #a2ad81;
+}
+
+#apresent {
+  height: 33px;
+  font-size: 30px;
 }
 
 body {
@@ -65,6 +70,7 @@ body {
 
 .intro > p {
   margin: 6px;
+  font-size: 1.5em;
 }
 
 /* criar um contêiner flexível que organiza os produtos */
