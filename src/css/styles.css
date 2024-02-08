@@ -74,8 +74,6 @@ body {
   margin: 20px;
   height: 400px;
   box-sizing: border-box;
-  outline: solid rgba(0, 0, 0, 0.137) 1px;
-  border-radius: 5%;
 }
 .item > h2 {
   font-size: 1.5em;
@@ -86,7 +84,14 @@ body {
 .item > img {
   width: 95%;
   border-radius: 10%;
+  padding: 5px;
+  outline: solid rgba(0, 0, 0, 0.137) 1px;
+  border-radius: 5%;
 }
+/* .item > hr {
+  width: 90%;
+  margin: auto;
+} */
 /* BOTÃO DE CORES */
 .item > Div > Button {
   width: 25px;
@@ -102,3 +107,8 @@ body {
 .item > Div > #branco {
   background-color: #ffffff;
 }
+/* .item > Div {
+  
+  display: flex;
+  flex-direction: row;
+} */
