@@ -117,7 +117,7 @@ body {
   background-color: #000000;
 }
 .item > Div > #azul {
-  background-color: #3F5F8A;
+  background-color: #3F5F8A; 
 }
 .cores {
   display: flex;
