@@ -116,8 +116,8 @@ body {
 .item > Div > #preto {
   background-color: #000000;
 }
-.item > Div > #branco {
-  background-color: #ffffff;
+.item > Div > #azul {
+  background-color: #3F5F8A;
 }
 .cores {
   display: flex;
