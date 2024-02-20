@@ -4,7 +4,7 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  background-color: #E3E3E3;
+  background-color: #ffffff;
   font-size: 1.05em;
   color: #181B0F;
   font-family: 'KG Primary Penmanship 2', sans-serif;
@@ -42,7 +42,7 @@ header > Div > a {
 /* tamanho dos icones: */
 header > Div > Div > a > img {
   width: 40px;
-  margin: 10px;
+  margin: 5px 10px;
 }
 /* ENTRE EM CONTATO */
 header > h3 {
@@ -50,13 +50,20 @@ header > h3 {
   width: 220px;
   min-height: 20px;
   max-height: 35px;
-  margin-bottom: 6px;
+  margin-bottom: 20px;
 }
 /* titulos grifados da página. */
 .faixa {
-  color: #E2E2E2;
+  color: #ffffff;
   background-color: #6b8a17b0;
   box-shadow: 5px 15px 10px #a2ad81;
+}
+#f2 {
+  margin-bottom: 25px;
+}
+
+.contatos {
+
 }
 
 #apresent {
@@ -78,12 +85,17 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 5%;
+}
+/* entorno do item */
+.back-color {
+  border: solid rgba(0, 0, 0, 0.137) 10px;
+  border-radius: 5%;
+  margin: 5% 1%;
 }
 /* aplicada a cada produto, definindo sua largura, altura, margem inferior e cor de fundo */
 .item {
   width: 360px;
-  margin: 20px;
+  margin: 15px;
   height: 400px;
   box-sizing: border-box;
 }
@@ -131,9 +143,9 @@ body {
 /* PREÇO DOS PRODUTOS */
 .preco {
   background-color: #e2e2e294;
-  width: 160px;
+  width: 120px;
   padding: 9px;
-  font-size: 2em;
+  font-size: 1.4em;
   text-align: start;
   margin: 3px 20px;
   outline: solid rgba(0, 0, 0, 0.137) 1px;
