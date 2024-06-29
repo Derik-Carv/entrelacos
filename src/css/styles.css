@@ -99,6 +99,8 @@ body {
   margin: 15px;
   height: 400px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 .item > h2 {
   font-size: 1.5em;
@@ -113,6 +115,7 @@ body {
   padding: 5px;
   outline: solid rgba(0, 0, 0, 0.137) 1px;
   border-radius: 5%;
+  margin: auto;
 }
 .item > hr {
   width: 90%;
@@ -152,13 +155,23 @@ body {
   padding-right: 40px;
 }
 /* PREÇO DOS PRODUTOS */
+#downprod {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .preco {
   background-color: #e2e2e294;
-  width: 120px;
+  width: 125px;
   padding: 9px;
   font-size: 1.4em;
   text-align: start;
   margin: 3px 20px;
   outline: solid rgba(0, 0, 0, 0.137) 1px;
   border-radius: 5%;
+}
+
+#carSmall{
+  width: 50px;
+  margin-right: 5%;
 }
