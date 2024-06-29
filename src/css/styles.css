@@ -170,8 +170,21 @@ body {
   outline: solid rgba(0, 0, 0, 0.137) 1px;
   border-radius: 5%;
 }
-
-#carSmall{
+#addcar {
+  border-radius: 25%;
   width: 50px;
+  height: 40px;
+  margin: auto;
   margin-right: 5%;
+  margin-top: 2%;
+}
+#tamanho {
+  height: 25px;
+  margin: auto;
+  margin-top: 4%;
+  margin-right: 80px;
+}
+#carSmall{
+  width: 35px;
+  margin: auto;
 }
