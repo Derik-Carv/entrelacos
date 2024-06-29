@@ -15,19 +15,18 @@ header {
   margin: 5px;
   font-family: 'Amatic SC';
   font-size: 1.5em;
-}
-header > img {
-  min-width: 20px;
-  max-width: 100px;
-  min-height: 50px;
-  max-height: 100px;
-  margin: 5px;
-}
-header > p {
-  margin: 5px;
+  & img {
+    min-width: 20px;
+    max-width: 100px;
+    min-height: 50px;
+    max-height: 100px;
+    margin: 5px;
+  }
+  & p {
+    margin: 5px;    
+  }
 }
 hr {
-  margin: 8px;
   color: #181B0F;
 }
 
@@ -82,15 +81,17 @@ body {
 
 /* criar um contêiner flexível que organiza os produtos */
 .produtos {
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 /* entorno do item */
 .back-color {
-  border: solid rgba(0, 0, 0, 0.137) 10px;
+  border: solid rgba(0, 0, 0, 0.137) 5px;
   border-radius: 5%;
-  margin: 5% 1%;
+  margin: auto;
+  margin-top: 2%;
 }
 /* aplicada a cada produto, definindo sua largura, altura, margem inferior e cor de fundo */
 .item {
@@ -106,7 +107,8 @@ body {
   font-size: 1.1em;
 }
 .item > img {
-  width: 95%;
+  width: 85%;
+  height: 250px;
   border-radius: 10%;
   padding: 5px;
   outline: solid rgba(0, 0, 0, 0.137) 1px;
@@ -130,6 +132,15 @@ body {
 }
 .item > Div > #azul {
   background-color: #3F5F8A; 
+}
+.item > Div > #blue {
+  background-color: #41c2f5;
+}
+.item > Div > #red {
+  background-color: #ff0000;
+}
+.item > Div > #pink {
+  background-color: #ff00dd;
 }
 .cores {
   display: flex;
