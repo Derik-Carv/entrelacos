@@ -602,12 +602,12 @@ footer {
         & .myrdesign {
             display: flex;
             align-items: center;
-            & a {
-                font-family: 'Shameimaru sans';
-            }
             & p {
                 font-family: 'Shameimaru sans';
                 font-size: 2rem;
+                & sub {
+                    font-family: 'Shameimaru sans';
+                }
             }
         }
         & a {
