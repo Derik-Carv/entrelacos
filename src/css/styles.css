@@ -607,6 +607,7 @@ footer {
                 font-size: 2rem;
                 & sub {
                     font-family: 'Shameimaru sans';
+                    font-size: 1.2rem;
                 }
             }
         }
