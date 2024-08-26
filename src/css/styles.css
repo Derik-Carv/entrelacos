@@ -497,6 +497,9 @@ section {
         }
     }
 }
+.selectColor {
+    border: 2px solid green;
+}
 #encomenda {
     display: flex;
     align-items: center;
