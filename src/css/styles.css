@@ -88,8 +88,8 @@ header { /* definições e estrutura do cabeçalho */
             }
             & a:hover {
                 background-color: #4444;
-                border-bottom: 2px solid #020202;
-                color: #020202;
+                border-bottom: 2px solid #020202ab;
+                color: #020202ab;
             }
                 & #ulCar {
                     display: flex;
@@ -107,8 +107,8 @@ header { /* definições e estrutura do cabeçalho */
                     }
                     & button:hover {
                         background-color: #4444;
-                        border-bottom: 2px solid #020202;
-                        color: #020202;
+                        border-bottom: 2px solid #020202ab;
+                        color: #020202ab;;
                         cursor: pointer
                     }
                     & a {
@@ -588,7 +588,7 @@ section {
             }
         }
         & a:hover {
-            color: #ffc506;
+            color: #020202ab;
         }
     }
 }
