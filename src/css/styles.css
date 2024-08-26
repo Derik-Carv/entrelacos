@@ -20,7 +20,7 @@ html { /* definindo tamanhos, barra de rolagem lateral, e fonte principal */
 }
 header { /* definições e estrutura do cabeçalho */
     font-size: 1.4rem;
-    background-color: #1f1e1f;
+    background-color: #CED8B3;
     width: 100vw;
     height: 230px;
     display: flex;
@@ -35,6 +35,9 @@ header { /* definições e estrutura do cabeçalho */
         flex-direction: column;
         & button {
             background-color: #ffffff00;
+            & span {
+                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.404);
+            }
         }
             & .apresent {  /* estilizando o nome do restaurante: */
                 color: #ffffff;
@@ -42,7 +45,9 @@ header { /* definições e estrutura do cabeçalho */
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                text-shadow: 0px 5px 15px rgba(0, 0, 0, 0.534);
                 & #logo { /* estilizando o logo: */
+                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
                 margin: 2%;
                 width: 80px;;    
                 border-radius: 50%;
@@ -83,8 +88,8 @@ header { /* definições e estrutura do cabeçalho */
             }
             & a:hover {
                 background-color: #4444;
-                border-bottom: 2px solid #ffc506;
-                color: #ffc506;
+                border-bottom: 2px solid #020202;
+                color: #020202;
             }
                 & #ulCar {
                     display: flex;
@@ -102,8 +107,8 @@ header { /* definições e estrutura do cabeçalho */
                     }
                     & button:hover {
                         background-color: #4444;
-                        border-bottom: 2px solid #ffc506;
-                        color: #ffc506;
+                        border-bottom: 2px solid #020202;
+                        color: #020202;
                         cursor: pointer
                     }
                     & a {
@@ -124,13 +129,13 @@ header { /* definições e estrutura do cabeçalho */
                     }
                     & a:hover {
                         background-color: #4444;
-                        border-bottom: 2px solid #ffc506;
-                        color: #ffc506;
+                        border-bottom: 2px solid #020202;
+                        color: #020202;
                         cursor: pointer
                     }
                     & #abrirCar:hover {
-                        background-color: #1f1e1f;
-                        color: #ffc506;
+                        background-color: #020202;
+                        color: #020202;
                         display: flex;
                         justify-content: space-around;
                         align-items: center;
@@ -357,7 +362,7 @@ section {
             height: 60px;
             cursor: pointer;
             text-transform: uppercase;
-            background-color: #ffc506;
+            background-color: #CED8B3;
             border-radius: 10px;
             color: black;
             font-weight: 700px;
@@ -365,9 +370,9 @@ section {
             transition: all 400ms ease-in;
         }
         & .btn button:hover {
-            border: 1px solid #ffc506;
+            border: 1px solid white;
             background-color: transparent;
-            color: #ffc506;
+            color: white;
         }
     }
 }
@@ -382,7 +387,7 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(12,12,12,0.8);
+    background-color: rgba(12, 12, 12, 0.651);
     & h2 {
         margin-top: 20%;
         margin-bottom: 2%;
@@ -401,14 +406,14 @@ section {
         gap: 50px;
         text-align: center;
         & div {
-            background-color: rgba(29,29,29,0.8);
+            background-color: #181B0F;
             box-shadow: 0px 0px 4px 1px;
             flex-direction: column;
             align-items: center;
             border: 1px solid #000000;
         }
         & .info {
-            background-color: rgb(221,221,221);
+            background-color: #CED8B3;
             border: none;
             padding: 1.5rem;
             display: flex;
@@ -558,7 +563,7 @@ section {
 .contatos {
     width: 100%;
     height: 130px;
-    background-color: #1f1e1f;
+    background-color: #CED8B3;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -590,7 +595,7 @@ section {
 footer {
     width: 100vw;
     height: 130px;
-    background-color: black;
+    background-color: #181B0F;
     color: white;
     font-size: 2rem;
     display: flex;
@@ -674,6 +679,13 @@ footer {
     #cabecalho {
         width: 100%;
     }
+    .intro {
+        & button {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+        }
+    }
     .menuMob {
         display: block;
         margin-left: 15px;
@@ -684,7 +696,7 @@ footer {
 }
 @media (max-width: 476px) {
     header {
-        height: 190px;
+        height: 220px;
         & .intro {
             margin-top: 20px;
             & .apresent {
@@ -697,10 +709,12 @@ footer {
         }
     }
     section {
-        & h1 {
-            margin-top: 120px;
+        & .cont-principal {
+            & h2 {
+                margin-top: 150px;
+            }
         }
-        .btn {
+        & .btn {
         flex-direction: column;
         align-items: center;
         width: 190px;
@@ -711,8 +725,12 @@ footer {
             font-size: 3rem;
         }
     }
+    .container {
+        margin: 20px;
+    }
     .contatos {
         padding-bottom: 2rem;
+        height: auto;
         & h3 {
             font-size: 4rem;
             margin: 1rem;
@@ -725,5 +743,7 @@ footer {
             margin-top: 10px;
         }
     }
-    
+    footer {
+        height: auto;
+    }
 }
