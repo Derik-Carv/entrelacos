@@ -287,37 +287,40 @@ header { /* definições e estrutura do cabeçalho */
             & .confirmardados {
                 display: none;
             } 
-                & .close {
-                    color: #aaa;
-                    float: right;
-                    font-size: 28px;
-                    font-weight: bold;
+            & .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            & li {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                & .button-pagar {
+                    margin-top: 10px;
+                    background-color: #4CAF50;
+                    color: white;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 5px;
                     cursor: pointer;
                 }
-                .close:hover,
-                .close:focus {
-                    color: #000;
-                    text-decoration: none;
-                    cursor: pointer;
+                
+                & .button-pagar:hover {
+                    background-color: #45a049;
                 }
-                & li {
-                    text-align: center;
-                    display: flex;
-                    flex-direction: column;
-                    & .button-pagar {
-                        margin-top: 10px;
-                        background-color: #4CAF50;
-                        color: white;
-                        padding: 10px 20px;
-                        border: none;
-                        border-radius: 5px;
-                        cursor: pointer;
-                    }
-                    
-                    & .button-pagar:hover {
-                        background-color: #45a049;
-                    }
-                }
+            }
+            & .resumo {
+                flex-direction: column;
+            }
         }
         & button {
             cursor: pointer;
@@ -511,13 +514,13 @@ section {
     flex-direction: column;
 }
 .forms {
-    & .container {
+    &  .container {
         background-color: #fff;
-        padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         width: 100%;
         max-width: 500px;
+        margin: 20px;
         & h2 {
             margin-top: 10px;
             text-align: center;

@@ -52,6 +52,7 @@ function finalizarCompra() { // function de chamar vizualização de itens e ing
         let nomeCompleto = modal.querySelector('.nomecompleto').value; // pega o nome completo do cliente
         let endereco = modal.querySelector('.endereco').value; // pega o enderenço preenchido
         let confirmardadosclient = modal.querySelector('li'); // introduz o texto na li criada na linha 132
+        confirmardadosclient.classList.add('resumo')
         confirmardadosclient.innerHTML =    `CONFIRME SEUS DADOS: <br>
                                             A sua forma de pagamento é <strong>${metodoPagamento}</strong>, 
                                             seu nome completo é <strong>${nomeCompleto}</strong>, 
@@ -103,10 +104,11 @@ function adicionarAoCarrinho(nome, preco, tamanho, selectColor) { // function de
     }
 }
 let btnAbrirCar = document.querySelector('.janela'); // abrir o carrrinho para ver as compras.
-btnAbrirCar.addEventListener('click', verCar()); // ao clicar clicar em `seu carrinho` com as infos rapidas, abre o modal do carrinho detalhado
+btnAbrirCar.addEventListener('click', () => {
+    verCar (a, b, quantidade)
+}); // ao clicar clicar em `seu carrinho` com as infos rapidas, abre o modal do carrinho detalhado
 function verCar (a, b, quantidade) { // a = pega o nome do item, b = pega o preço do item, c pega quantidade.
     let li = document.createElement('li'); // cria li no modal
-    btnAbrirCar.appendChild(li)
     let verNome = document.createElement('span');
     let verPreco = document.createElement('span');
     let menos = document.createElement('span');
@@ -117,6 +119,7 @@ function verCar (a, b, quantidade) { // a = pega o nome do item, b = pega o pre�
     mais.innerHTML = '+'
     verNome.textContent = (a)
     verPreco.textContent = (b)
+    btnAbrirCar.appendChild(li)
     li.appendChild(menos)
     li.appendChild(qtdCar)
     li.appendChild(mais)
