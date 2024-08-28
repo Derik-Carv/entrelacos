@@ -1,3 +1,18 @@
+document.addEventListener(`scroll`, () =>{
+    const header = document.querySelector(`header`);
+    if (window.scrollY > 70){
+        header.classList.add(`scrolled`);
+        header.style.height = '100px'
+        header.querySelector('.intro').style.margin = '0px'
+        document.querySelector('.apresent').style.display = 'none'
+    } else {
+        header.classList.remove(`scrolled`);
+        document.querySelector('.apresent').style.display = 'flex'
+        header.style.height = '290px'
+        header.querySelector('.intro').style.marginTop = '2%'
+    }
+})
+
 document.querySelectorAll('.pedir').forEach((btn, i) => { // inicia a função de adiocionar pedido
     btn.addEventListener('click', () => {
         let info = document.querySelectorAll('.info')[i]; // seleciona a div do item correspondente ao botão clicado

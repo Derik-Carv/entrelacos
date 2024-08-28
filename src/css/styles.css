@@ -1,7 +1,19 @@
-@import url('https://fonts.cdnfonts.com/css/kg-primary-penmanship-2'); /* importação de fontes: */
+/* importação de fontes: */
 @font-face {
     font-family: 'Shameimaru sans';
-    src: url(/src/fonts/ShameimaruSans.ttf);
+    src: url(/src/fonts/ShameimaruSans/ShameimaruSans.ttf);
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url(/src/fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Against2';
+    src: url(/src/fonts/against_2/against\ regular.ttf);
+}
+@font-face {
+    font-family: 'Angela';
+    src: url(/src/fonts/angela_cindysttar/Angela\ Cindysttar.otf);
 }
 * { /* resetando formatação e denifições gerais da página: */
     margin: 0;
@@ -10,7 +22,7 @@
     list-style: none;
     border: none;
     text-decoration: none;
-    font-family: 'KG Primary Penmanship 2', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 html { /* definindo tamanhos, barra de rolagem lateral, e fonte principal */
     width: 100vw;
@@ -18,11 +30,16 @@ html { /* definindo tamanhos, barra de rolagem lateral, e fonte principal */
     font-size: 62.5%;
     overflow-x: hidden;
 }
+.scrolled {
+    background-color: #b2b3da;
+    transition: all 250ms ease-in;
+}
 header { /* definições e estrutura do cabeçalho */
+    transition: all 250ms ease-in;
     font-size: 1.4rem;
-    background-color: #CED8B3;
+    background-color: #b2b3da65; 
     width: 100vw;
-    height: 230px;
+    height: 290px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -55,13 +72,30 @@ header { /* definições e estrutura do cabeçalho */
                 cursor: pointer;
                 display: flex;
                 align-items: center;
+                background-color: #b2b3da;
+                }
+                & h1 {
+                    font-family: 'Against2', sans-serif;
+                    margin-top: 2%;
+                }
+                & .autoria {
+                    width: auto;
+                    margin-top: 2%;
+                    & span {
+                        font-family: 'Montserrat', sans-serif;
+                        scale: 45%;
+                        margin-right: 150px;
+                        margin-top: 2%;
+                    }
                 }
                 & p {
-                    margin-top: 5px;
+                    font-family: 'Angela';
+                    scale: 150%;
                 }
             }     
     }
     & .guia { /* guia do loyalt geral da página e informações da loja */
+        margin-top: 5%;
         font-size: 1.3em;
         text-transform: uppercase;
         & .guia-lista {
@@ -89,7 +123,7 @@ header { /* definições e estrutura do cabeçalho */
             & a:hover {
                 background-color: #4444;
                 border-bottom: 2px solid #020202ab;
-                color: #020202ab;
+                color: #fff;
             }
                 & #ulCar {
                     display: flex;
@@ -108,7 +142,7 @@ header { /* definições e estrutura do cabeçalho */
                     & button:hover {
                         background-color: #4444;
                         border-bottom: 2px solid #020202ab;
-                        color: #020202ab;;
+                        color: #fff;
                         cursor: pointer
                     }
                     & a {
@@ -149,12 +183,17 @@ header { /* definições e estrutura do cabeçalho */
         }
     }
     .menuMob {
-        margin-top: 5px;
-        width: 20px;
-        background-color: #ffffff34;
         display: none;
-        scale: 200%;
+        position: fixed; /* ou absolute, se preferir que o botão se mova com o scroll */
+        top: 35px; /* Ajuste a distância do topo */
+        right: 65px; /* Ajuste a distância da borda direita */
+        padding: 10px 20px;
+        background-color: #ffffff34;
+        color: white;
+        border: none;
+        border-radius: 5px;
         cursor: pointer;
+        z-index: 1000; /* Garante que o botão fique sobre outros elementos */
     }
     .cabecalhoMob {
         display: none;
@@ -335,21 +374,31 @@ header { /* definições e estrutura do cabeçalho */
 section {
     color: #020202;
     & .cont-principal {
-    height: 100vh;
+    height: 550px;
     width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(rgba(29,29,29,0.8),rgba(29,29,29,0.8)) ,url(/src/pictures/logo.png);
+    background-image: linear-gradient(rgba(29,29,29,0.8),rgba(29,29,29,0.8)) ,url(/src/pictures/finesseclassica.jpeg);
     background-position: center center;
-    background-size: cover;
     background-repeat: no-repeat;
-    background-position-y: 90px;
+    background-size: cover;
         & h2 {
-            margin-top: 5%;
+            margin-top: 20%;
+            margin-left: 15%;
+            margin-right: 15%;
             color: #fff;
             font-size: 3rem;
+            font-weight: 400;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+        & h3 {
+            margin-top: 2%;
+            color: #fff;
+            font-size: 2rem;
             font-weight: 400;
             text-align: center;
             text-transform: uppercase;
@@ -380,9 +429,9 @@ section {
     }
 }
 #intervalo {
-    background-color: #1f1e1f;
+    background-color:  #181B0F;
     width: 100%;
-    height: 10px;
+    height: 6px;
 }
 .catalogo {
     width: 100vw;
@@ -390,12 +439,15 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(12, 12, 12, 0.651);
+    background-color: #ececf6;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     & h2 {
-        margin-top: 20%;
+        margin-top: 5%;
         margin-bottom: 2%;
         font-size: 5rem;
-        color: #e6e6e6;
+        color: black;
         text-transform: uppercase;
     }
     .itens-catalogo {
@@ -416,7 +468,7 @@ section {
             border: 1px solid #000000;
         }
         & .info {
-            background-color: #CED8B3;
+            background-color: #d9d9ed;
             border: none;
             padding: 1.5rem;
             display: flex;
@@ -470,7 +522,7 @@ section {
                     & .detalhes {
                         & .tamanho {
                             display: flex;
-                            background-color: rgb(221,221,221);
+                            background-color: #d9d9ed;
                             border: none;
                             box-shadow: none;
                             & select {
@@ -566,7 +618,7 @@ section {
 .contatos {
     width: 100%;
     height: 130px;
-    background-color: #CED8B3;
+    background-color: #b2b3da;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -632,6 +684,16 @@ footer {
         }
     } 
 }
+@media (max-width: 1260px) {
+    section {
+        & .cont-principal {
+            height: 600px;
+            & h2 {
+                margin-top: 25%;
+            }
+        }
+    }
+}
 @media (max-width: 954px) {
     header {
         width: 100%;
@@ -648,9 +710,9 @@ footer {
     }
     section {
         & .cont-principal {
-            & h1 {
-                margin-top: 350px;
-                font-size: 2rem;
+            height: 750px;
+            & h2 {
+                margin-top: 27%;
             }
         }
         & h2 {
@@ -661,7 +723,10 @@ footer {
 }
 @media (max-width: 772px) {
     .cont-principal {
-        background-color: #1f1e1f;
+        height: 750px;
+            & h2 {
+                margin-top: 350px;
+            }
     }
     #ulCar button {
         height: 72%;
@@ -681,6 +746,7 @@ footer {
 @media (max-width: 672px) {
     #cabecalho {
         width: 100%;
+        height: 220px;
     }
     .intro {
         & button {
@@ -691,15 +757,26 @@ footer {
     }
     .menuMob {
         display: block;
-        margin-left: 15px;
     }
     .guia {
         display: none;
     }
 }
+@media (max-width: 607px) {
+    #cabecalho {
+        height: 220px;
+    }
+    section {
+        & .cont-principal {
+            & h2 {
+                margin-top: 40%;
+            }
+        }
+    }
+}
 @media (max-width: 476px) {
     header {
-        height: 220px;
+        height: 180px;
         & .intro {
             margin-top: 20px;
             & .apresent {
@@ -713,8 +790,13 @@ footer {
     }
     section {
         & .cont-principal {
+            height: 800px;
             & h2 {
-                margin-top: 150px;
+                margin-top: 300px;
+            }
+            & h3 {
+                margin-left: 15%;
+                margin-right: 15%;
             }
         }
         & .btn {
