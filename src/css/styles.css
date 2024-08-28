@@ -33,6 +33,7 @@ html { /* definindo tamanhos, barra de rolagem lateral, e fonte principal */
 .scrolled {
     background-color: #b2b3da;
     transition: all 250ms ease-in;
+    justify-content: center;
 }
 header { /* definições e estrutura do cabeçalho */
     transition: all 250ms ease-in;
@@ -45,6 +46,12 @@ header { /* definições e estrutura do cabeçalho */
     align-items: center;
     position: fixed;
     scale: 120%;
+    & #titleMobile {
+        display: none;
+        font-family: 'Against2', sans-serif;
+        color: #ffffff;
+        text-shadow: 0px 5px 15px rgba(0, 0, 0, 0.534);
+    }
     & .intro {  /* parte responsável por agrupar o logo e o nome da loja: */
         margin-top: 2%;
         display: flex;
@@ -744,6 +751,11 @@ footer {
     }
 }
 @media (max-width: 672px) {
+    header {
+        & #titleMobile {
+            display: flex;
+        }
+    }
     #cabecalho {
         width: 100%;
         height: 220px;

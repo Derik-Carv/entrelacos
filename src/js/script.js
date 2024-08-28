@@ -1,3 +1,4 @@
+console.log(window.screen.width)
 document.addEventListener(`scroll`, () =>{
     const header = document.querySelector(`header`);
     if (window.scrollY > 70){
@@ -5,11 +6,18 @@ document.addEventListener(`scroll`, () =>{
         header.style.height = '100px'
         header.querySelector('.intro').style.margin = '0px'
         document.querySelector('.apresent').style.display = 'none'
+        if (window.screen.width > '673') {
+            header.querySelector('#titleMobile').style.display = 'none'
+        } else {
+            header.querySelector('#titleMobile').style.display = 'flex'
+        }
+        
     } else {
         header.classList.remove(`scrolled`);
         document.querySelector('.apresent').style.display = 'flex'
         header.style.height = '290px'
         header.querySelector('.intro').style.marginTop = '2%'
+        header.querySelector('#titleMobile').style.display = 'none'
     }
 })
 
