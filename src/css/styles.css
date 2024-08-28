@@ -48,6 +48,7 @@ header { /* definições e estrutura do cabeçalho */
     scale: 120%;
     & #titleMobile {
         display: none;
+        margin-top: 2%;
         font-family: 'Against2', sans-serif;
         color: #ffffff;
         text-shadow: 0px 5px 15px rgba(0, 0, 0, 0.534);
