@@ -11,7 +11,6 @@ document.addEventListener(`scroll`, () =>{
         } else {
             header.querySelector('#titleMobile').style.display = 'flex'
         }
-        
     } else {
         header.classList.remove(`scrolled`);
         document.querySelector('.apresent').style.display = 'flex'
@@ -20,7 +19,6 @@ document.addEventListener(`scroll`, () =>{
         header.querySelector('#titleMobile').style.display = 'none'
     }
 })
-
 document.querySelectorAll('.pedir').forEach((btn, i) => { // inicia a função de adiocionar pedido
     btn.addEventListener('click', () => {
         let info = document.querySelectorAll('.info')[i]; // seleciona a div do item correspondente ao botão clicado

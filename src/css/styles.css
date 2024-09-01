@@ -1,15 +1,9 @@
 /* importação de fontes: */
-@font-face {
-    font-family: 'Shameimaru sans';
-    src: url(/src/fonts/ShameimaruSans/ShameimaruSans.ttf);
-}
-@font-face {
-    font-family: 'Montserrat';
-    src: url(/src/fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
-}
+@import url('https://fonts.cdnfonts.com/css/shameimaru-sans');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @font-face {
     font-family: 'Against2';
-    src: url(/src/fonts/against_2/against\ regular.ttf);
+    src: url(/src/fonts/against_2/against\ regular.otf);
 }
 @font-face {
     font-family: 'Angela';
@@ -22,7 +16,7 @@
     list-style: none;
     border: none;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", system-ui;
 }
 html { /* definindo tamanhos, barra de rolagem lateral, e fonte principal */
     width: 100vw;
@@ -90,7 +84,7 @@ header { /* definições e estrutura do cabeçalho */
                     width: auto;
                     margin-top: 2%;
                     & span {
-                        font-family: 'Montserrat', sans-serif;
+                        font-family: "Montserrat", system-ui;
                         scale: 45%;
                         margin-right: 150px;
                         margin-top: 2%;
@@ -388,7 +382,8 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(rgba(29,29,29,0.8),rgba(29,29,29,0.8)) ,url(/src/pictures/finesseclassica.jpeg);
+    background-image: linear-gradient(rgba(29,29,29,0.8),rgba(29,29,29,0.8));
+    background-image: url(/src/pictures/finesseclassica.jpeg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -674,10 +669,10 @@ footer {
             display: flex;
             align-items: center;
             & p {
-                font-family: 'Shameimaru sans';
+                font-family: 'Shameimaru Sans', sans-serif;
                 font-size: 2rem;
                 & sub {
-                    font-family: 'Shameimaru sans';
+                    font-family: 'Shameimaru Sans', sans-serif;
                     font-size: 1.2rem;
                 }
             }
