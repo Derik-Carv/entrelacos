@@ -410,7 +410,7 @@ section {
         & .btn {
             display: flex;
             justify-content: space-between;
-            gap: 50px;
+            gap: 30px;
         }
         & .btn button {
             width: 190px;
@@ -468,6 +468,9 @@ section {
         & div {
             flex-direction: column;
             align-items: center;
+        }
+        & .item {
+            width: 270px;
         }
         & .item:hover {
             background-color: #d9d9ed;
