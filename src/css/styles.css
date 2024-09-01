@@ -383,7 +383,6 @@ section {
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(rgba(29,29,29,0.8),rgba(29,29,29,0.8));
-    background-image: url(/src/pictures/finesseclassica.jpeg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
