@@ -782,6 +782,15 @@ footer {
         }
     }
 }
+@media (max-width: 548px) {
+    section {
+        & .cont-principal {
+            & h2 {
+                margin-top: 300px;
+            }
+        }
+    }
+}
 @media (max-width: 476px) {
     header {
         height: 180px;
