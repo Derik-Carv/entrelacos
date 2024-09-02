@@ -1,4 +1,3 @@
-console.log(window.screen.width)
 document.addEventListener(`scroll`, () =>{
     const header = document.querySelector(`header`);
     if (window.scrollY > 70){
@@ -124,6 +123,11 @@ function adicionarAoCarrinho(nome, preco, tamanho, selectColor) { // function de
         verCar(nome, preco, quantTotalItens); // chama a function que exibe os itens do carrinho detalhados
     }
 }
+document.querySelectorAll('.cores .cor').forEach(corSelecionada => { // faz uma varredura na div para achar o button em questão
+    corSelecionada.addEventListener('click', function() { // function para mudar a imagem de acordo com a cor
+        this.parentNode.parentNode.parentNode.parentNode.querySelector('img').src = 'src/pictures/' + this.name + '-' + this.id + '.jpg' // muda o source da imagem para a cor seleciona
+    });
+});
 let btnAbrirCar = document.querySelector('.janela'); // abrir o carrrinho para ver as compras.
 btnAbrirCar.addEventListener('click', () => {
     verCar (a, b, quantidade)
@@ -150,3 +154,25 @@ function verCar (a, b, quantidade) { // a = pega o nome do item, b = pega o pre�
     verNome.classList.add('itemCarNome')
     verPreco.classList.add('itemCarPreco')
 }
+
+let contatos = document.querySelector('.contatos-sessao a')
+let msgContat = `Olá, gostaria de me informar mais sobre a Entrelaços Crochê. Poderia me ajudar?`
+let msgContatURI = encodeURI(msgContat)
+let tel = '5591988502326'
+contatos.href = `https://wa.me/${tel}?text=${msgContatURI}`
+let message = ''
+let linkWpp = ''
+
+let formulario = document.querySelector('.forms .container')
+let tipo = ''
+let imgLink = ''
+let corForms = ''
+let obs = ''
+
+//console.log(formulario)
+
+function goWpp () {
+    linkWpp = `https://wa.me/${tel}?text=${message}`
+}
+goWpp();
+
