@@ -699,6 +699,9 @@ footer {
                 margin-left: 5px;
             }
         }
+        & a:hover {
+            color: #b2b3da;
+        }
     } 
 }
 @media (max-width: 1260px) {
@@ -763,7 +766,7 @@ footer {
 @media (max-width: 672px) {
     header {
         & #titleMobile {
-            display: flex;
+            display: none;
         }
     }
     #cabecalho {

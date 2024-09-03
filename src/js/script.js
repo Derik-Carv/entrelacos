@@ -154,25 +154,8 @@ function verCar (a, b, quantidade) { // a = pega o nome do item, b = pega o pre�
     verNome.classList.add('itemCarNome')
     verPreco.classList.add('itemCarPreco')
 }
-
 let contatos = document.querySelector('.contatos-sessao a')
 let msgContat = `Olá, gostaria de me informar mais sobre a Entrelaços Crochê. Poderia me ajudar?`
 let msgContatURI = encodeURI(msgContat)
 let tel = '5591988502326'
 contatos.href = `https://wa.me/${tel}?text=${msgContatURI}`
-let message = ''
-let linkWpp = ''
-
-let formulario = document.querySelector('.forms .container')
-let tipo = ''
-let imgLink = ''
-let corForms = ''
-let obs = ''
-
-//console.log(formulario)
-
-function goWpp () {
-    linkWpp = `https://wa.me/${tel}?text=${message}`
-}
-goWpp();
-
