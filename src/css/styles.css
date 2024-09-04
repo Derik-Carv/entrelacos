@@ -354,7 +354,6 @@ header { /* definições e estrutura do cabeçalho */
             & .itensCar {
                 & span {
                     margin: 2px;
-                    border: 0.2px solid #000000;
                 }
             }
             & li {
