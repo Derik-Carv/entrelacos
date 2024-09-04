@@ -158,8 +158,26 @@ function verCar (a, b, quantidade, corOn, tamanho) { // a = pega o nome do item,
     li.appendChild(tam)
     li.appendChild(verPreco).classList.add('itemCarPreco')
 }
+
 let contatos = document.querySelector('.contatos-sessao a')
-let msgContat = `Olá, gostaria de me informar mais sobre a Entrelaços Crochê. Poderia me ajudar?`
-let msgContatURI = encodeURI(msgContat)
-let tel = '5591988502326'
-contatos.href = `https://wa.me/${tel}?text=${msgContatURI}`
+let msgContato = `Olá, gostaria de me informar mais sobre a Entrelaços Crochê. Poderia me ajudar?`
+wwpMessage(contatos ,msgContato)
+
+let btnEncomenda = document.querySelector('.btnEncomenda').addEventListener('click', () => {
+    console.log('test')
+    let textoEncomenda = document.querySelector('textarea#observacao').value
+    let linkEncomenda = document.querySelector('.encomenda div a')
+    console.log(linkEncomenda)
+    wwpMessage(linkEncomenda, textoEncomenda)
+})
+
+function wwpMessage (a, b) {
+    if (b == '') {
+        alert(`Prencha o campo corretamente.`)
+    } else {
+        let msgContatURI = encodeURI(b)
+        let tel = '5591988502326'
+        a.href = `https://wa.me/${tel}?text=${msgContatURI}`
+    }
+    
+}

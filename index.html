@@ -144,33 +144,20 @@
                     <button type="button" class="pedir">Pedir Agora</button>
                 </div>
             </div>
-            
-            
         </div>
         <div id="intervalo">
         </div>
-        <section class="forms" id="encomenda" class="formulario">
-            <div class="container">
-                <h2>Formulário de Encomenda de Crochê</h2>
-                <form action="#" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="tipo-croche">Tipo de Crochê:</label>
-                        <input type="text" id="tipo-croche" name="tipo-croche" placeholder="Ex: Tapete, Amigurumi, etc." required>
-                    </div>
-                    <div class="form-group">
-                        <label for="imagem">Link da imagem (Opcional:)</label>
-                        <input type="text" id="imagem" name="imagem"  placeholder="Ponha o link da imagem aqui:">
-                    </div>
-                    <div class="form-group">
-                        <label for="cores">Cores Desejadas:</label>
-                        <input type="text" id="cores" name="cores" placeholder="Ex: Azul, Branco, Rosa..." required>
-                    </div>
-                    <div class="form-group">
-                        <label for="observacoes">Observações:</label>
-                        <textarea id="observacoes" name="observacoes" rows="4" placeholder="Escreva aqui suas observações" required></textarea>
-                    </div>
-                    <button type="submit">Enviar Encomenda</button>
-                </form>
+        <section class="encomenda" id="encomenda" class="observacao">
+            <div class="corpoEncomenda">
+                <div class="wppEncomenda">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                    <p>Faça sua encomenda pelo nosso WhatsApp!</p>
+                </div>
+                <div class="anotacao">
+                    <label for="observacao">Descreva sua encomenda aqui:</label>
+                    <textarea id="observacao" name="observacao" placeholder="Imagens devem ser enviadas diretamente no Whatsapp! Você também pode mandar links para exemplificar detalhes da encomenda." required></textarea>
+                </div>
+                <a target="_blank"><button type="button" class="btnEncomenda">Pedir Encomenda</button></a>
             </div>
         <section class="contatos" id="contatos">
             <h3>Contatos</h3>
