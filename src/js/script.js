@@ -120,7 +120,7 @@ function adicionarAoCarrinho(nome, preco, tamanho, selectColor) { // function de
         quantTotalItens = carrinho.length; // verifica a quantidade de itens adicionados
         const carrinhoIcon = document.querySelector('button i.bi-cart'); // parte que é exibida no cabeçalho com as informações de quantidade e preço total de itens, sem detalhar.
         carrinhoIcon.innerHTML = `<span> <span class='quant'>${quantTotalItens}</span> = R$${precoTotal.toFixed(2)} </span>`; // expressa visualmente o preço total e quantidade total
-        verCar(nome, preco, quantTotalItens); // chama a function que exibe os itens do carrinho detalhados
+        verCar(nome, preco, quantTotalItens, corOn, tamanho); // chama a function que exibe os itens do carrinho detalhados
     }
 }
 document.querySelectorAll('.cores .cor').forEach(corSelecionada => { // faz uma varredura na div para achar o button em questão
@@ -132,27 +132,31 @@ let btnAbrirCar = document.querySelector('.janela'); // abrir o carrrinho para v
 btnAbrirCar.addEventListener('click', () => {
     verCar (a, b, quantidade)
 }); // ao clicar clicar em `seu carrinho` com as infos rapidas, abre o modal do carrinho detalhado
-function verCar (a, b, quantidade) { // a = pega o nome do item, b = pega o preço do item, c pega quantidade.
+function verCar (a, b, quantidade, corOn, tamanho) { // a = pega o nome do item, b = pega o preço do item, c pega quantidade.
     let li = document.createElement('li'); // cria li no modal
+    li.classList.add('itensCar')
     let verNome = document.createElement('span');
     let verPreco = document.createElement('span');
     let menos = document.createElement('span');
     let mais = document.createElement('span');
     let qtdCar = document.createElement('span');
+    let corCar = document.createElement('span')
+    let tam = document.createElement('span')
     qtdCar.textContent = quantidade
     menos.innerHTML = '-'
     mais.innerHTML = '+'
     verNome.textContent = (a)
     verPreco.textContent = (b)
+    corCar.textContent = corOn
+    tam.textContent = `Tamanho: ${tamanho}`
     btnAbrirCar.appendChild(li)
-    li.appendChild(menos)
-    li.appendChild(qtdCar)
-    li.appendChild(mais)
-    li.appendChild(verNome)
-    li.appendChild(verPreco)
-    qtdCar.classList.add('itemQtd')
-    verNome.classList.add('itemCarNome')
-    verPreco.classList.add('itemCarPreco')
+    li.appendChild(menos).classList.add('retirar')
+    li.appendChild(qtdCar).classList.add('itemQtd')
+    li.appendChild(mais).classList.add('adicionar')
+    li.appendChild(verNome).classList.add('itemCarNome')
+    li.appendChild(corCar)
+    li.appendChild(tam)
+    li.appendChild(verPreco).classList.add('itemCarPreco')
 }
 let contatos = document.querySelector('.contatos-sessao a')
 let msgContat = `Olá, gostaria de me informar mais sobre a Entrelaços Crochê. Poderia me ajudar?`

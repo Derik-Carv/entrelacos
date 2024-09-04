@@ -54,9 +54,6 @@ header { /* definições e estrutura do cabeçalho */
         flex-direction: column;
         & button {
             background-color: #ffffff00;
-            & span {
-                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.404);
-            }
         }
             & .apresent {  /* estilizando o nome do restaurante: */
                 color: #ffffff;
@@ -320,10 +317,23 @@ header { /* definições e estrutura do cabeçalho */
                 background-color: #4444;
                 border: 1px solid black;
                 color: black;
+                margin-top: 5px;
+                cursor: pointer;
+            }
+            & label {
+                margin-top: 5px;
             }
             & .opcpag {
                 display: flex;
                 flex-direction: column;
+                & span {
+                    & input {
+                        margin-right: 5px;
+                    }
+                    & i {
+                        margin-left: 5px;
+                    }
+                }
             }
             & .confirmardados {
                 display: none;
@@ -340,6 +350,12 @@ header { /* definições e estrutura do cabeçalho */
                 color: #000;
                 text-decoration: none;
                 cursor: pointer;
+            }
+            & .itensCar {
+                & span {
+                    margin: 2px;
+                    border: 0.2px solid #000000;
+                }
             }
             & li {
                 display: flex;
@@ -364,7 +380,11 @@ header { /* definições e estrutura do cabeçalho */
             }
         }
         & button {
+            margin-top: 5px;
             cursor: pointer;
+        }
+        & button:hover {
+            background-color: #33333331;
         }
     }
     /* Para exibir a modal */
