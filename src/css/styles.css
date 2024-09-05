@@ -25,14 +25,14 @@ html { /* definindo tamanhos, barra de rolagem lateral, e fonte principal */
     overflow-x: hidden;
 }
 .scrolled {
-    background-color: #b2b3da;
+    background-color: #c5d8b8e0;
     transition: all 250ms ease-in;
     justify-content: center;
 }
 header { /* definições e estrutura do cabeçalho */
     transition: all 250ms ease-in;
     font-size: 1.4rem;
-    background-color: #b2b3da65; 
+    background-color: #c5d8b8e0;
     width: 100vw;
     height: 290px;
     display: flex;
@@ -63,7 +63,7 @@ header { /* definições e estrutura do cabeçalho */
                 align-items: center;
                 text-shadow: 0px 5px 15px rgba(0, 0, 0, 0.534);
                 & #logo { /* estilizando o logo: */
-                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.192);
                 margin: 2%;
                 width: 80px;;    
                 border-radius: 50%;
@@ -71,7 +71,7 @@ header { /* definições e estrutura do cabeçalho */
                 cursor: pointer;
                 display: flex;
                 align-items: center;
-                background-color: #b2b3da;
+                background-color: #C5D8B8; 
                 }
                 & h1 {
                     font-family: 'Against2', sans-serif;
@@ -305,11 +305,11 @@ header { /* definições e estrutura do cabeçalho */
             background-color: #fff;
             margin: 15% auto; /* Centraliza verticalmente com uma margem superior */
             padding: 20px;
-            border: 5px solid #ffc506;
+            border: 5px solid #C5D8B8;
             width: 80%; /* Largura da janela modal */
             max-width: 500px; /* Largura máxima da janela modal */
             border-radius: 8px; /* Bordas arredondadas */
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Sombra da janela */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.712); /* Sombra da janela */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -402,7 +402,7 @@ section {
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(rgba(29,29,29,0.8), rgba(29,29,29,0.4));
-    background-color: #b2b3da;
+    background-color: #c9d8bf;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -461,7 +461,7 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #ececf6;
+    background-color: #f6ffdf69;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -655,7 +655,7 @@ section {
 .contatos {
     width: 100%;
     height: 130px;
-    background-color: #b2b3da;
+    background-color: #C5D8B8;
     display: flex;
     flex-direction: column;
     justify-content: center;
