@@ -386,13 +386,10 @@ header { /* definições e estrutura do cabeçalho */
             background-color: #33333331;
         }
     }
-    /* Para exibir a modal */
-    .modal.active {
+    .modal.active { /* Para exibir a modal */
         display: block;
     }
-
-/* definindo estilização, background, ajuste de posição e orientações inicias da página */
-section {
+section { /* definindo estilização, background, ajuste de posição e orientações inicias da página */
     color: #020202;
     & .cont-principal {
     height: 550px;
@@ -820,6 +817,13 @@ footer {
     }
 }
 @media (max-width: 548px) {
+    header {
+        & #titleMobile {
+            font-size: 2.5rem;
+            position: absolute;
+            right: 130px;
+        }
+    }
     section {
         & .cont-principal {
             & h2 {
@@ -840,6 +844,13 @@ footer {
     }
 }
 @media (max-width: 476px) {
+    header {
+        & #titleMobile {
+            font-size: 2rem;
+            position: absolute;
+            right: 130px;
+        }
+    }
     header {
         height: 180px;
         & .intro {
