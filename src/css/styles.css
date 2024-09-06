@@ -182,17 +182,23 @@ header { /* definições e estrutura do cabeçalho */
         }
     }
     .menuMob {
+        width: 50px;
+        height: 40px;
+        padding-top: 10px;
         display: none;
         position: fixed; /* ou absolute, se preferir que o botão se mova com o scroll */
         top: 35px; /* Ajuste a distância do topo */
         right: 65px; /* Ajuste a distância da borda direita */
-        padding: 10px 20px;
         background-color: #ffffff34;
         color: white;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         z-index: 1000; /* Garante que o botão fique sobre outros elementos */
+        & sub {
+            color: #ff0000;
+            font-size: 1.5rem;
+        }
     }
     .cabecalhoMob {
         display: none;

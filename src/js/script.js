@@ -99,29 +99,40 @@ cor.forEach(button => {
         this.classList.add('selectColor')
     });
 });
-var quant = 0; // variavel para incrementar quantidade ao adicionar ao carrinho
-var quantTotalItens = 0; // variavel que irá armazenar o total de itens
-var carrinho = []; // array que armazena os itens do carrinho
-var precoTotal = 0; // variavel que para armazenar o total do pedido
-function adicionarAoCarrinho(nome, preco, tamanho, selectColor) { // function de adiocionar item ao carrinho
-    if (selectColor == null) {
-        alert('Selecione a cor!')
-    } else {
-        preco = parseFloat(preco.textContent.replace('R$', '').replace(',', '.')); // filtra o texto do preço para pegar só os números
-        corOn = selectColor.id
-        carrinho.push({ // adiciona um novo item ao carrinho
-            nome: nome,
-            preco: preco,
-            cor: corOn,
-            tamanho: tamanho
-        });
-        quant = preco // pega preço do ultimo item selecionado
-        precoTotal += quant; // atualiza o preço total
-        quantTotalItens = carrinho.length; // verifica a quantidade de itens adicionados
-        const carrinhoIcon = document.querySelector('button i.bi-cart'); // parte que é exibida no cabeçalho com as informações de quantidade e preço total de itens, sem detalhar.
-        carrinhoIcon.innerHTML = `<span> <span class='quant'>${quantTotalItens}</span> = R$${precoTotal.toFixed(2)} </span>`; // expressa visualmente o preço total e quantidade total
-        verCar(nome, preco, quantTotalItens, corOn, tamanho); // chama a function que exibe os itens do carrinho detalhados
-    }
+var quant = 0; // variavel para incrementar quantidade ao adicionar ao carrinho 
+var quantTotalItens = -1; // variavel que irá armazenar o total de itens 
+var carrinho = []; // array que armazena os itens do carrinho 
+var precoTotal = 0; // variavel que para armazenar o total do pedido 
+function adicionarAoCarrinho(nome, preco, tamanho, selectColor) { // function de adiocionar item ao carrinho 
+        if (selectColor == null) { 
+            alert('Selecione a cor!'); 
+        } else { 
+            preco = parseFloat(preco.textContent.replace('R$', '').replace(',', '.')); // Filtra o preço 
+            let corOn = selectColor.id; // Verifica se o item já existe no carrinho 
+            let itemExistente = carrinho.find(item => 
+                item.nome === nome && 
+                item.preco === preco && 
+                item.cor === corOn && 
+                item.tamanho === tamanho 
+            ); 
+            if (itemExistente) { // Se o item já existe, incrementa a quantidade 
+                itemExistente.quantidade += 1; 
+            } else { // Se não existe, adiciona um novo item ao carrinho 
+                carrinho.push({ 
+                    nome: nome, 
+                    preco: preco, 
+                    cor: corOn, 
+                    tamanho: tamanho, 
+                    quantidade: 1 
+                }); 
+            } 
+            quant = preco; // Atualiza o preço do último item adicionado 
+            precoTotal += quant; // Atualiza o preço total 
+            quantTotalItens = carrinho.length; // Atualiza o total de itens no carrinho 
+            const carrinhoIcon = document.querySelector('button i.bi-cart'); 
+            carrinhoIcon.innerHTML = `<span><span class='quant'>${quantTotalItens}</span> = R$${precoTotal.toFixed(2)}</span>`; 
+            verCar(nome, preco, itemExistente ? itemExistente.quantidade : 1, corOn, tamanho); // Exibe os itens no carrinho 
+        } 
 }
 document.querySelectorAll('.cores .cor').forEach(corSelecionada => { // faz uma varredura na div para achar o button em questão
     corSelecionada.addEventListener('click', function() { // function para mudar a imagem de acordo com a cor
@@ -132,31 +143,36 @@ let btnAbrirCar = document.querySelector('.janela'); // abrir o carrrinho para v
 btnAbrirCar.addEventListener('click', () => {
     verCar (a, b, quantidade)
 }); // ao clicar clicar em `seu carrinho` com as infos rapidas, abre o modal do carrinho detalhado
-function verCar (a, b, quantidade, corOn, tamanho) { // a = pega o nome do item, b = pega o preço do item, c pega quantidade.
-    let li = document.createElement('li'); // cria li no modal
-    li.classList.add('itensCar')
-    let verNome = document.createElement('span');
-    let verPreco = document.createElement('span');
-    let menos = document.createElement('span');
-    let mais = document.createElement('span');
-    let qtdCar = document.createElement('span');
-    let corCar = document.createElement('span')
-    let tam = document.createElement('span')
-    qtdCar.textContent = quantidade
-    menos.innerHTML = '-'
-    mais.innerHTML = '+'
-    verNome.textContent = (a)
-    verPreco.textContent = (b)
-    corCar.textContent = corOn
+function verCar (a, b, quantidade, corOn, tamanho) { // a = pega o nome do item, b = pega o preço do item, c pega quantidade. 
+    console.log(quantidade) 
+    let li = document.createElement('li'); // cria li no modal 
+    li.classList.add('itensCar') 
+    let verNome = document.createElement('span'); 
+    let verPreco = document.createElement('span'); 
+    let menos = document.createElement('span'); 
+    let mais = document.createElement('span'); 
+    let qtdCar = document.createElement('span'); 
+    let corCar = document.createElement('span') 
+    let tam = document.createElement('span') 
+    qtdCar.textContent = quantidade 
+    menos.innerHTML = '-' 
+    mais.innerHTML = '+' 
+    verNome.textContent = (a) 
+    verPreco.textContent = (b.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })) 
+    corCar.textContent = `Cor: ${corOn}`
     tam.textContent = `Tamanho: ${tamanho}`
-    btnAbrirCar.appendChild(li)
-    li.appendChild(menos).classList.add('retirar')
-    li.appendChild(qtdCar).classList.add('itemQtd')
-    li.appendChild(mais).classList.add('adicionar')
-    li.appendChild(verNome).classList.add('itemCarNome')
-    li.appendChild(corCar)
-    li.appendChild(tam)
-    li.appendChild(verPreco).classList.add('itemCarPreco')
+    let validationAtual = `${verNome.textContent} ${verPreco.textContent} ${corCar.textContent} ${tam.textContent}` 
+    console.log(validationAtual, 'valida') 
+    console.log(document.querySelectorAll('.itensCar span').className) 
+    btnAbrirCar.appendChild(li) 
+    li.appendChild(menos).classList.add('retirar') 
+    li.appendChild(qtdCar).classList.add('itemQtd') 
+    li.appendChild(mais).classList.add('adicionar') 
+    li.appendChild(verNome).classList.add('itemCarNome') 
+    li.appendChild(corCar).classList.add('itemCarCor') 
+    li.appendChild(tam).classList.add('itemCarTamanho') 
+    li.appendChild(verPreco).classList.add('itemCarPreco') 
+    console.log(li.textContent, ' test') 
 }
 
 let contatos = document.querySelector('.contatos-sessao a')
