@@ -665,6 +665,7 @@ section { /* definindo estilização, background, ajuste de posição e orienta�
     align-items: center;
     font-size: 1.8rem;
     color: #fff;
+    text-shadow: 0px 5px 15px rgba(0, 0, 0, 0.534);
     & h3 {
         font-size: 4rem;
         margin-bottom: 3rem;
@@ -673,6 +674,7 @@ section { /* definindo estilização, background, ajuste de posição e orienta�
         display: flex;
         font-size: 1.8rem;
         flex-direction: row;
+        text-shadow: 0px 5px 15px rgb(0, 0, 0);
         & a {
             color: #fff;
             cursor: pointer;

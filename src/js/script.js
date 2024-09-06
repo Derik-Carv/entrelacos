@@ -163,22 +163,20 @@ function verCar (a, b, quantidade, corOn, tamanho) { // a = pega o nome do item,
     tam.textContent = `Tamanho: ${tamanho}`
     let validationAtual = `${verNome.textContent} ${verPreco.textContent} ${corCar.textContent} ${tam.textContent}` 
     console.log(validationAtual, 'valida') 
-    console.log(document.querySelectorAll('.itensCar span').className) 
-    btnAbrirCar.appendChild(li) 
+    console.log(document.querySelectorAll('.itensCar span'))
+    console.log(li.querySelectorAll('span'), ' li text')
+    btnAbrirCar.appendChild(li)
     li.appendChild(menos).classList.add('retirar') 
     li.appendChild(qtdCar).classList.add('itemQtd') 
     li.appendChild(mais).classList.add('adicionar') 
     li.appendChild(verNome).classList.add('itemCarNome') 
     li.appendChild(corCar).classList.add('itemCarCor') 
     li.appendChild(tam).classList.add('itemCarTamanho') 
-    li.appendChild(verPreco).classList.add('itemCarPreco') 
-    console.log(li.textContent, ' test') 
+    li.appendChild(verPreco).classList.add('itemCarPreco')
 }
-
 let contatos = document.querySelector('.contatos-sessao a')
 let msgContato = `Olá, gostaria de me informar mais sobre a Entrelaços Crochê. Poderia me ajudar?`
 wwpMessage(contatos ,msgContato)
-
 let btnEncomenda = document.querySelector('.btnEncomenda').addEventListener('click', () => {
     console.log('test')
     let textoEncomenda = document.querySelector('textarea#observacao').value
@@ -186,7 +184,6 @@ let btnEncomenda = document.querySelector('.btnEncomenda').addEventListener('cli
     console.log(linkEncomenda)
     wwpMessage(linkEncomenda, textoEncomenda)
 })
-
 function wwpMessage (a, b) {
     if (b == '') {
         alert(`Prencha o campo corretamente.`)
@@ -195,5 +192,4 @@ function wwpMessage (a, b) {
         let tel = '5591988502326'
         a.href = `https://wa.me/${tel}?text=${msgContatURI}`
     }
-    
 }
