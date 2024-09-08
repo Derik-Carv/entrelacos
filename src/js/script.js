@@ -161,7 +161,7 @@ function verCar (a, b, quantidade, corOn, tamanho) { // a = pega o nome do item,
     verPreco.textContent = (b.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })) 
     corCar.textContent = `Cor: ${corOn}`
     tam.textContent = `Tamanho: ${tamanho}`
-    let validationAtual = `${verNome.textContent} ${verPreco.textContent} ${corCar.textContent} ${tam.textContent}` 
+    let validationAtual = `${verNome.textContent} ${verPreco.textContent} ${corCar.textContent} ${tam.textContent}`
     console.log(validationAtual, 'valida') 
     console.log(document.querySelectorAll('.itensCar span'))
     console.log(li.querySelectorAll('span'), ' li text')
