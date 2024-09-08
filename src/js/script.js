@@ -132,6 +132,14 @@ function adicionarAoCarrinho(nome, preco, tamanho, selectColor) { // function de
             const carrinhoIcon = document.querySelector('button i.bi-cart'); 
             carrinhoIcon.innerHTML = `<span><span class='quant'>${quantTotalItens}</span> = R$${precoTotal.toFixed(2)}</span>`; 
             verCar(nome, preco, itemExistente ? itemExistente.quantidade : 1, corOn, tamanho); // Exibe os itens no carrinho 
+            console.log(document.querySelector('span#buttonMob.menuMob sub'))
+            if (document.querySelector('span#buttonMob.menuMob sub') == null) {
+                let qtdMobMenu = document.createElement('sub')
+            document.querySelector('span#buttonMob.menuMob').appendChild(qtdMobMenu)
+            qtdMobMenu.textContent = quantTotalItens
+            } else {
+                document.querySelector('span#buttonMob.menuMob sub').textContent = quantTotalItens
+            }
         } 
 }
 document.querySelectorAll('.cores .cor').forEach(corSelecionada => { // faz uma varredura na div para achar o button em questão
