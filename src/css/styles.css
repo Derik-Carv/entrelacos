@@ -320,6 +320,9 @@ header { /* definições e estrutura do cabeçalho */
             display: flex;
             flex-direction: column;
             align-items: center;
+            & p {
+                margin-top: 10px;
+            }
             & input {
                 background-color: #4444;
                 border: 1px solid black;
@@ -331,7 +334,7 @@ header { /* definições e estrutura do cabeçalho */
                 margin-top: 5px;
             }
             & .opcpag {
-                display: flex;
+                display: none;
                 flex-direction: column;
                 & span {
                     & input {
@@ -376,13 +379,15 @@ header { /* definições e estrutura do cabeçalho */
                     border-radius: 5px;
                     cursor: pointer;
                 }
-                
                 & .button-pagar:hover {
                     background-color: #45a049;
                 }
             }
             & .resumo {
                 flex-direction: column;
+                & p {
+                    text-align: center;
+                }
             }
         }
         & button {
@@ -915,5 +920,52 @@ footer {
     }
     footer {
         height: auto;
+    }
+}
+@media (max-width: 412px) {
+    header {
+        & h1 {
+            left: 150px;
+        }
+        & span#buttonMob.menuMob {
+            top: 40px;
+            right: 45px;
+        }
+    }
+}
+@media (max-width: 411px) {
+    header {
+        & h1 {
+            left: 130px;
+        }
+        & span#buttonMob.menuMob {
+            top: 30px;
+            right: 45px;
+        }
+    }
+    .intro {
+        & .apresent {
+            & h1 {
+                font-size: 2rem;
+            }
+        }
+    }
+    .encomenda {
+        max-width: 390px;
+        & .envioEnc {
+            & i {
+                display: none;
+            }
+        }
+    }
+    .contatos {
+        max-width: 392px;
+    }
+}
+@media (max-width: 360px) {
+    header {
+        & h1 {
+            left: 120px;
+        }
     }
 }

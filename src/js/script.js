@@ -1,4 +1,4 @@
-document.addEventListener(`scroll`, () =>{
+document.addEventListener(`scroll`, () =>{ // animação do header ao scrollar pagina
     const header = document.querySelector(`header`);
     if (window.scrollY > 70){
         header.classList.add(`scrolled`);
@@ -16,6 +16,14 @@ document.addEventListener(`scroll`, () =>{
         header.style.height = '290px'
         header.querySelector('.intro').style.marginTop = '2%'
         header.querySelector('#titleMobile').style.display = 'none'
+    }
+})
+document.querySelector('.btnIrPag').addEventListener('click', () => { // interação para prosseguir pagamento
+    if (document.querySelector('.janela').querySelector('li') == null) {
+        alert('Adicione itens no carrinho para pagar.')
+    } else {
+        document.querySelector('.janela .opcpag').style.display = 'flex'
+        document.querySelector('.janela .btnIrPag').style.display = 'none'
     }
 })
 document.querySelectorAll('.pedir').forEach((btn, i) => { // inicia a função de adiocionar pedido
@@ -59,6 +67,8 @@ function finalizarCompra() { // function de chamar vizualização de itens e ing
     btnClose.addEventListener('click', () => { // chama o botão e função de fechar o modal
         modal.classList.remove('active'); // remove a classe de status ativo do modal
         modal.style.display = 'none'; // tira a visualização do modal
+        modal.querySelector('.btnIrPag').style.display = 'block' // reseta vizualição do modal ao fechar
+        modal.querySelector('.opcpag').style.display = 'none' // reseta vizualição do modal ao fechar
     });
     let btnConfirmarDados = modal.querySelector('.janela .buttonconfirmardados'); // chama o button responsavel por pegar os dados e forma de pagamento do cliente.
     btnConfirmarDados.addEventListener('click', () => {
@@ -73,19 +83,23 @@ function finalizarCompra() { // function de chamar vizualização de itens e ing
         let endereco = modal.querySelector('.endereco').value; // pega o enderenço preenchido
         let confirmardadosclient = modal.querySelector('li'); // introduz o texto na li criada na linha 132
         confirmardadosclient.classList.add('resumo')
-        confirmardadosclient.innerHTML =    `CONFIRME SEUS DADOS: <br>
+        confirmardadosclient.innerHTML =    `<p>CONFIRME SEUS DADOS: <br>
                                             A sua forma de pagamento é <strong>${metodoPagamento}</strong>, 
                                             seu nome completo é <strong>${nomeCompleto}</strong>, 
                                             e seu endereço é: <strong>${endereco}</strong>. <br> 
                                             O valor total do pedido é: <strong>R$${precoTotal.toFixed(2)}</strong> <br>
-                                            Pode confirmar seus dados apertando o botão abaixo.`; // introduz o texto na li
-        let buttonSubmit = document.createElement('button'); // cria o button de pagamento
-        buttonSubmit.type = 'submit'; // cria o type do button
+                                            Pode confirmar seus dados apertando o botão abaixo.</p>`; // introduz o texto na li
+        let buttonSubmit = document.createElement('a'); // cria o button de pagamento
         buttonSubmit.textContent = 'Pagar'; // introduz o texto do button
         buttonSubmit.className = 'button-pagar'; // cria a classe do button
         confirmardadosclient.appendChild(buttonSubmit); // põe o button na li
         buttonSubmit.addEventListener('click', () => {  // ação de pagamento ao clicar no button pagar
-            alert("Pagamento efetuado com sucesso!"); // alerta na tela
+            alert('Você será encaminhado para o Whatsapp da Entreleços Crochê.')
+            let textoPedido = `Olá, meu chamo ${nomeCompleto}, acabei de fazer um pedido no seu site. Pedido: , Valor: ${precoTotal.toFixed(2)} Forma de Pagamento: ${metodoPagamento}, Meu Endereço: ${endereco}`
+            //wppMessage(buttonSubmit, textoPedido)
+            let msgContatURI = encodeURI(textoPedido)
+            let tel = '5591988502326'
+            buttonSubmit.href = `https://wa.me/${tel}?text=${msgContatURI}`
             modal.classList.remove('active'); // desativa o modal ao finalizar compra
             modal.style.display = 'none'; // fecha a vizualização do modal
             location.reload(); // recarrega a página
@@ -132,7 +146,6 @@ function adicionarAoCarrinho(nome, preco, tamanho, selectColor) { // function de
             const carrinhoIcon = document.querySelector('button i.bi-cart'); 
             carrinhoIcon.innerHTML = `<span><span class='quant'>${quantTotalItens}</span> = R$${precoTotal.toFixed(2)}</span>`; 
             verCar(nome, preco, itemExistente ? itemExistente.quantidade : 1, corOn, tamanho); // Exibe os itens no carrinho 
-            console.log(document.querySelector('span#buttonMob.menuMob sub'))
             if (document.querySelector('span#buttonMob.menuMob sub') == null) {
                 let qtdMobMenu = document.createElement('sub')
             document.querySelector('span#buttonMob.menuMob').appendChild(qtdMobMenu)
@@ -150,9 +163,21 @@ document.querySelectorAll('.cores .cor').forEach(corSelecionada => { // faz uma 
 let btnAbrirCar = document.querySelector('.janela'); // abrir o carrrinho para ver as compras.
 btnAbrirCar.addEventListener('click', () => {
     verCar (a, b, quantidade)
-}); // ao clicar clicar em `seu carrinho` com as infos rapidas, abre o modal do carrinho detalhado
+}); // ao clicar clicar em `seu carrinho` com as infos rapidas, abre o modal do carrinho detalhado 
+let checkboxes = btnAbrirCar.querySelectorAll('.opcpag span input[type=checkbox]'); // seleciona todas as checkboxes dentro de '.opcpag'
+checkboxes.forEach(checkbox => { // faz a troca com o 'change' a cada checkbox individualmente
+    checkbox.addEventListener('change', () => { // verifica se a checkbox atual foi marcada 
+        if (checkbox.checked) { // desmarca todas as outras checkboxes
+            checkboxes.forEach(verifyCheck2 => {
+                if (verifyCheck2 !== checkbox) {
+                    verifyCheck2.checked = false;
+                }
+            });
+        }
+    });
+});
+
 function verCar (a, b, quantidade, corOn, tamanho) { // a = pega o nome do item, b = pega o preço do item, c pega quantidade. 
-    console.log(quantidade) 
     let li = document.createElement('li'); // cria li no modal 
     li.classList.add('itensCar') 
     let verNome = document.createElement('span'); 
@@ -170,9 +195,6 @@ function verCar (a, b, quantidade, corOn, tamanho) { // a = pega o nome do item,
     corCar.textContent = `Cor: ${corOn}`
     tam.textContent = `Tamanho: ${tamanho}`
     let validationAtual = `${verNome.textContent} ${verPreco.textContent} ${corCar.textContent} ${tam.textContent}`
-    console.log(validationAtual, 'valida') 
-    console.log(document.querySelectorAll('.itensCar span'))
-    console.log(li.querySelectorAll('span'), ' li text')
     btnAbrirCar.appendChild(li)
     li.appendChild(menos).classList.add('retirar') 
     li.appendChild(qtdCar).classList.add('itemQtd') 
@@ -186,10 +208,8 @@ let contatos = document.querySelector('.contatos-sessao a')
 let msgContato = `Olá, gostaria de me informar mais sobre a Entrelaços Crochê. Poderia me ajudar?`
 wwpMessage(contatos ,msgContato)
 let btnEncomenda = document.querySelector('.btnEncomenda').addEventListener('click', () => {
-    console.log('test')
     let textoEncomenda = document.querySelector('textarea#observacao').value
     let linkEncomenda = document.querySelector('.encomenda div a')
-    console.log(linkEncomenda)
     wwpMessage(linkEncomenda, textoEncomenda)
 })
 function wwpMessage (a, b) {
