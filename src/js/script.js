@@ -89,20 +89,25 @@ function finalizarCompra() { // function de chamar vizualização de itens e ing
                                             e seu endereço é: <strong>${endereco}</strong>. <br> 
                                             O valor total do pedido é: <strong>R$${precoTotal.toFixed(2)}</strong> <br>
                                             Pode confirmar seus dados apertando o botão abaixo.</p>`; // introduz o texto na li
-        let buttonSubmit = document.createElement('a'); // cria o button de pagamento
-        buttonSubmit.textContent = 'Pagar'; // introduz o texto do button
-        buttonSubmit.className = 'button-pagar'; // cria a classe do button
-        confirmardadosclient.appendChild(buttonSubmit); // põe o button na li
+        let buttonSubmit = document.createElement('a'); // cria o elemento 'a'
+        buttonSubmit.target = '_blank'; // abre o link em uma nova aba
+        buttonSubmit.textContent = 'Pagar'; // define o texto do botão
+        buttonSubmit.className = 'button-pagar'; // adiciona a classe CSS
+        confirmardadosclient.appendChild(buttonSubmit); // adiciona o elemento ao DOM
         buttonSubmit.addEventListener('click', () => {  // ação de pagamento ao clicar no button pagar
             alert('Você será encaminhado para o Whatsapp da Entreleços Crochê.')
             let textoPedido = `Olá, meu chamo ${nomeCompleto}, acabei de fazer um pedido no seu site. Pedido: , Valor: ${precoTotal.toFixed(2)} Forma de Pagamento: ${metodoPagamento}, Meu Endereço: ${endereco}`
-            //wppMessage(buttonSubmit, textoPedido)
-            let msgContatURI = encodeURI(textoPedido)
-            let tel = '5591988502326'
-            buttonSubmit.href = `https://wa.me/${tel}?text=${msgContatURI}`
             modal.classList.remove('active'); // desativa o modal ao finalizar compra
             modal.style.display = 'none'; // fecha a vizualização do modal
-            location.reload(); // recarrega a página
+            wwpMessage (buttonSubmit, textoPedido); // envia a mensagem de compra de item ao whatsapp da empresa.
+            setTimeout(function() { // function para recarregar a página 1 segundos após a ação de pedido, para não perder os dados de envio
+                location.reload();
+            }, 1000); // 5000 milissegundos = 5 segundos
+            document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(function() {
+                    location.reload();
+                }, 1000); // 5000 milissegundos = 5 segundos
+            });
         });
     });
 }
@@ -176,7 +181,6 @@ checkboxes.forEach(checkbox => { // faz a troca com o 'change' a cada checkbox i
         }
     });
 });
-
 function verCar (a, b, quantidade, corOn, tamanho) { // a = pega o nome do item, b = pega o preço do item, c pega quantidade. 
     let li = document.createElement('li'); // cria li no modal 
     li.classList.add('itensCar') 

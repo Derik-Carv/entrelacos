@@ -196,7 +196,11 @@ header { /* definições e estrutura do cabeçalho */
         cursor: pointer;
         z-index: 1000; /* Garante que o botão fique sobre outros elementos */
         & sub {
-            color: #ff0000;
+            margin-left: 2px;
+            padding: 0px 2px;
+            color: #2F4F4F;
+            background-color: #2f4f4f2a;
+            border-radius: 15%;
             font-size: 1.5rem;
         }
     }
@@ -741,6 +745,15 @@ footer {
             height: 600px;
             & h2 {
                 margin-top: 25%;
+            }
+        }
+    }
+}
+@media (max-width: 965px) {
+    section {
+        & .cont-principal {
+            & h2 {
+                margin-top: 30%;
             }
         }
     }
