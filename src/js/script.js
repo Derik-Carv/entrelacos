@@ -181,6 +181,9 @@ checkboxes.forEach(checkbox => { // faz a troca com o 'change' a cada checkbox i
         }
     });
 });
+let nomeList = ''
+let corList = ''
+let tamanhoList = ''
 function verCar (a, b, quantidade, corOn, tamanho) { // a = pega o nome do item, b = pega o preço do item, c pega quantidade. 
     let li = document.createElement('li'); // cria li no modal 
     li.classList.add('itensCar') 
@@ -198,15 +201,33 @@ function verCar (a, b, quantidade, corOn, tamanho) { // a = pega o nome do item,
     verPreco.textContent = (b.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })) 
     corCar.textContent = `Cor: ${corOn}`
     tam.textContent = `Tamanho: ${tamanho}`
-    let validationAtual = `${verNome.textContent} ${verPreco.textContent} ${corCar.textContent} ${tam.textContent}`
     btnAbrirCar.appendChild(li)
     li.appendChild(menos).classList.add('retirar') 
     li.appendChild(qtdCar).classList.add('itemQtd') 
-    li.appendChild(mais).classList.add('adicionar') 
+    li.appendChild(mais).classList.add('adicionar')
     li.appendChild(verNome).classList.add('itemCarNome') 
     li.appendChild(corCar).classList.add('itemCarCor') 
     li.appendChild(tam).classList.add('itemCarTamanho') 
     li.appendChild(verPreco).classList.add('itemCarPreco')
+    let valid = btnAbrirCar.querySelectorAll('li');
+    valid.forEach(function(lista) {
+        let detalhesCar = lista.querySelectorAll('span');
+        detalhesCar.forEach(function(span) {
+            if (span.className == 'itemCarNome') {
+                nomeList = span.textContent
+            }
+            if (span.className == 'itemCarCor') {
+                corList = span.textContent
+            }
+            if (span.className == 'itemCarTamanho') {
+                tamanhoList = span.textContent
+            }
+        });
+        console.log(carrinho, nomeList, corList, tamanhoList)
+        carrinho.forEach((item) => {
+            console.log(item.nome, item.cor, item.tamanho)
+        })
+    });
 }
 let contatos = document.querySelector('.contatos-sessao a')
 let msgContato = `Olá, gostaria de me informar mais sobre a Entrelaços Crochê. Poderia me ajudar?`
