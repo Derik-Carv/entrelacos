@@ -96,6 +96,7 @@ function finalizarCompra() { // function de chamar vizualização de itens e ing
         confirmardadosclient.appendChild(buttonSubmit); // adiciona o elemento ao DOM
         buttonSubmit.addEventListener('click', () => {  // ação de pagamento ao clicar no button pagar
             alert('Você será encaminhado para o Whatsapp da Entreleços Crochê.')
+            // pedido aqui
             let textoPedido = `Olá, meu chamo ${nomeCompleto}, acabei de fazer um pedido no seu site. Pedido: , Valor: ${precoTotal.toFixed(2)} Forma de Pagamento: ${metodoPagamento}, Meu Endereço: ${endereco}`
             modal.classList.remove('active'); // desativa o modal ao finalizar compra
             modal.style.display = 'none'; // fecha a vizualização do modal
@@ -181,52 +182,82 @@ checkboxes.forEach(checkbox => { // faz a troca com o 'change' a cada checkbox i
         }
     });
 });
-let nomeList = ''
-let corList = ''
-let tamanhoList = ''
-function verCar (a, b, quantidade, corOn, tamanho) { // a = pega o nome do item, b = pega o preço do item, c pega quantidade. 
-    let li = document.createElement('li'); // cria li no modal 
-    li.classList.add('itensCar') 
-    let verNome = document.createElement('span'); 
-    let verPreco = document.createElement('span'); 
-    let menos = document.createElement('span'); 
-    let mais = document.createElement('span'); 
-    let qtdCar = document.createElement('span'); 
-    let corCar = document.createElement('span') 
-    let tam = document.createElement('span') 
-    qtdCar.textContent = quantidade 
-    menos.innerHTML = '-' 
-    mais.innerHTML = '+' 
-    verNome.textContent = (a) 
-    verPreco.textContent = (b.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })) 
-    corCar.textContent = `Cor: ${corOn}`
-    tam.textContent = `Tamanho: ${tamanho}`
-    btnAbrirCar.appendChild(li)
-    li.appendChild(menos).classList.add('retirar') 
-    li.appendChild(qtdCar).classList.add('itemQtd') 
-    li.appendChild(mais).classList.add('adicionar')
-    li.appendChild(verNome).classList.add('itemCarNome') 
-    li.appendChild(corCar).classList.add('itemCarCor') 
-    li.appendChild(tam).classList.add('itemCarTamanho') 
-    li.appendChild(verPreco).classList.add('itemCarPreco')
+let nomeList = '';
+let corList = '';
+let tamanhoList = '';
+let existList = '';
+let newList = '';
+function verCar(a, b, quantidade, corOn, tamanho) { 
     let valid = btnAbrirCar.querySelectorAll('li');
+    let itemExistente = false;
+    newList = `${a}, ${corOn}, ${tamanho}`; //cria a newList com base nos dados do item adicionado
     valid.forEach(function(lista) {
         let detalhesCar = lista.querySelectorAll('span');
+        let nomeAtual = '';
+        let corAtual = '';
+        let tamanhoAtual = '';
         detalhesCar.forEach(function(span) {
-            if (span.className == 'itemCarNome') {
-                nomeList = span.textContent
+            if (span.classList.contains('itemCarNome')) {
+                nomeAtual = span.textContent;
             }
-            if (span.className == 'itemCarCor') {
-                corList = span.textContent
+            if (span.classList.contains('itemCarCor')) {
+                corAtual = span.textContent.replace('Cor: ', '');
             }
-            if (span.className == 'itemCarTamanho') {
-                tamanhoList = span.textContent
+            if (span.classList.contains('itemCarTamanho')) {
+                tamanhoAtual = span.textContent.replace('Tamanho: ', '');
             }
         });
-        console.log(carrinho, nomeList, corList, tamanhoList)
-        carrinho.forEach((item) => {
-            console.log(item.nome, item.cor, item.tamanho)
-        })
+    });
+    if (!itemExistente) { // se o item não existir, cria uma nova entrada
+        let li = document.createElement('li'); // Cria li no modal
+        li.classList.add('itensCar');
+        let verNome = document.createElement('span');
+        let verPreco = document.createElement('span');
+        let menos = document.createElement('span');
+        let mais = document.createElement('span');
+        let qtdCar = document.createElement('span');
+        let corCar = document.createElement('span');
+        let tam = document.createElement('span');
+        qtdCar.textContent = quantidade; // define a quantidade inicial
+        menos.innerHTML = '-';
+        mais.innerHTML = '+';
+        verNome.textContent = a;
+        verPreco.textContent = b.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        corCar.textContent = `Cor: ${corOn}`;
+        tam.textContent = `Tamanho: ${tamanho}`;
+        btnAbrirCar.appendChild(li); // cria a lista visual no carrinho
+        li.appendChild(menos).classList.add('retirar');
+        li.appendChild(qtdCar).classList.add('itemQtd');
+        li.appendChild(mais).classList.add('adicionar');
+        li.appendChild(verNome).classList.add('itemCarNome');
+        li.appendChild(corCar).classList.add('itemCarCor');
+        li.appendChild(tam).classList.add('itemCarTamanho');
+        li.appendChild(verPreco).classList.add('itemCarPreco');
+    }
+    let nomes = document.querySelectorAll('.itemCarNome'); // para ocultar os itens repetidos, mantendo o último visível
+    let cores = document.querySelectorAll('.itemCarCor');
+    let tamanhos = document.querySelectorAll('.itemCarTamanho');
+    for (let i = 0; i < nomes.length - 1; i++) { //verificar todos os itens e oculta os repetidos
+        for (let j = i + 1; j < nomes.length; j++) {
+            let nomeAtual = nomes[i].textContent;
+            let corAtual = cores[i].textContent;
+            let tamanhoAtual = tamanhos[i].textContent;
+            let nomeComparado = nomes[j].textContent;
+            let corComparada = cores[j].textContent;
+            let tamanhoComparado = tamanhos[j].textContent;
+            if (nomeAtual === nomeComparado && corAtual === corComparada && tamanhoAtual === tamanhoComparado) { // se todos os valores forem iguais, oculta o anterior
+                nomes[i].parentElement.style.display = 'none'; // oculta o item anterior repetido
+            }
+        }
+    }
+    let itemList = document.querySelectorAll('.janela .itensCar');
+    itemList.forEach((item, index) => {
+        item.querySelectorAll(`span`).forEach((span) => {
+            if (span.className == 'itemQtd') {
+                let somar = parseInt(span.textContent);
+                console.log(somar, 'somar');
+            }
+        });
     });
 }
 let contatos = document.querySelector('.contatos-sessao a')
