@@ -250,15 +250,6 @@ function verCar(a, b, quantidade, corOn, tamanho) {
             }
         }
     }
-    let itemList = document.querySelectorAll('.janela .itensCar');
-    itemList.forEach((item, index) => {
-        item.querySelectorAll(`span`).forEach((span) => {
-            if (span.className == 'itemQtd') {
-                let somar = parseInt(span.textContent);
-                console.log(somar, 'somar');
-            }
-        });
-    });
 }
 let contatos = document.querySelector('.contatos-sessao a')
 let msgContato = `Olá, gostaria de me informar mais sobre a Entrelaços Crochê. Poderia me ajudar?`
