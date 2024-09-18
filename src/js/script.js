@@ -61,16 +61,6 @@ let btnConfirmar = document.querySelector('.fimCar');  // declara a região que 
 btnConfirmar.addEventListener('click', finalizarCompra); // chama o o modal de revisão de itens e pagamento
 function finalizarCompra() { // function de chamar vizualização de itens e ingressar no pagamento
     let modal = document.querySelector('.modal'); // declara a div que vai se comportar o modal de pagamento
-    let pedido = [] // declarando variavel vazia para receber itens de mensagem para o whatsapp
-        modal.querySelectorAll('li').forEach((item)=>{ // pegando os itens ativos no carrinho
-            if (item.style.display != 'none') { // pega somente o svisiveis ativos.
-                let qtdPedido = item.querySelector('.itemQtd')
-                let nomePedido = item.querySelector('.itemCarNome')
-                let corPedido = item.querySelector('.itemCarCor')
-                let tamanhoPedido = item.querySelector('.itemCarTamanho')
-                pedido += `${qtdPedido.textContent} ${nomePedido.textContent}, da ${corPedido.textContent} e ${tamanhoPedido.textContent}  ; ` // pedido será adicionado na mensagem para o whatsapp
-            }
-        })
     modal.classList.add('active'); // class criada para identificar quando o modal está ativo
     modal.style.display = 'block'; // deixa o modal visivel
     let btnClose = modal.querySelector('.close');
@@ -91,7 +81,7 @@ function finalizarCompra() { // function de chamar vizualização de itens e ing
         let metodoPagamento = selectedPag[0].nextSibling.textContent.trim(); // pega o texto do checkbox de pagamento
         let nomeCompleto = modal.querySelector('.nomecompleto').value; // pega o nome completo do cliente
         let endereco = modal.querySelector('.endereco').value; // pega o enderenço preenchido
-        let confirmardadosclient = modal.querySelector('li'); // introduz o texto na li criada na linha 132
+        let confirmardadosclient = modal.querySelector('li'); // introduz o texto na li criada
         confirmardadosclient.classList.add('resumo')
         confirmardadosclient.innerHTML =    `<p>CONFIRME SEUS DADOS: <br>
                                             A sua forma de pagamento é <strong>${metodoPagamento}</strong>, 
@@ -106,6 +96,16 @@ function finalizarCompra() { // function de chamar vizualização de itens e ing
         confirmardadosclient.appendChild(buttonSubmit); // adiciona o elemento ao DOM
         buttonSubmit.addEventListener('click', () => {  // ação de pagamento ao clicar no button pagar
             alert('Você será encaminhado para o Whatsapp da Entreleços Crochê.')
+            let pedido = '' // declarando variavel vazia para receber itens de mensagem para o whatsapp
+                modal.querySelectorAll('li').forEach((item)=>{ // pegando os itens ativos no carrinho
+                    if (item.style.display != 'none' && item.className == 'itensCar') { // pega somente o svisiveis ativos.
+                        let qtdPedido = item.querySelector('.itemQtd')
+                        let nomePedido = item.querySelector('.itemCarNome')
+                        let corPedido = item.querySelector('.itemCarCor')
+                        let tamanhoPedido = item.querySelector('.itemCarTamanho')
+                        pedido += `${qtdPedido.textContent} ${nomePedido.textContent}, da ${corPedido.textContent} e ${tamanhoPedido.textContent}  ; ` // pedido será adicionado na mensagem para o whatsapp
+                    }
+                })
             let textoPedido = `Olá, meu chamo ${nomeCompleto}, acabei de fazer um pedido no seu site. Pedido: ${pedido}, Valor Total: ${precoTotal.toFixed(2)} Forma de Pagamento: ${metodoPagamento}, Meu Endereço: ${endereco}`
             modal.classList.remove('active'); // desativa o modal ao finalizar compra
             modal.style.display = 'none'; // fecha a vizualização do modal
