@@ -61,6 +61,16 @@ let btnConfirmar = document.querySelector('.fimCar');  // declara a região que 
 btnConfirmar.addEventListener('click', finalizarCompra); // chama o o modal de revisão de itens e pagamento
 function finalizarCompra() { // function de chamar vizualização de itens e ingressar no pagamento
     let modal = document.querySelector('.modal'); // declara a div que vai se comportar o modal de pagamento
+    let pedido = [] // declarando variavel vazia para receber itens de mensagem para o whatsapp
+        modal.querySelectorAll('li').forEach((item)=>{ // pegando os itens ativos no carrinho
+            if (item.style.display != 'none') { // pega somente o svisiveis ativos.
+                let qtdPedido = item.querySelector('.itemQtd')
+                let nomePedido = item.querySelector('.itemCarNome')
+                let corPedido = item.querySelector('.itemCarCor')
+                let tamanhoPedido = item.querySelector('.itemCarTamanho')
+                pedido += `${qtdPedido.textContent} ${nomePedido.textContent}, da ${corPedido.textContent} e ${tamanhoPedido.textContent}  ; ` // pedido será adicionado na mensagem para o whatsapp
+            }
+        })
     modal.classList.add('active'); // class criada para identificar quando o modal está ativo
     modal.style.display = 'block'; // deixa o modal visivel
     let btnClose = modal.querySelector('.close');
@@ -96,8 +106,7 @@ function finalizarCompra() { // function de chamar vizualização de itens e ing
         confirmardadosclient.appendChild(buttonSubmit); // adiciona o elemento ao DOM
         buttonSubmit.addEventListener('click', () => {  // ação de pagamento ao clicar no button pagar
             alert('Você será encaminhado para o Whatsapp da Entreleços Crochê.')
-            // pedido aqui
-            let textoPedido = `Olá, meu chamo ${nomeCompleto}, acabei de fazer um pedido no seu site. Pedido: , Valor: ${precoTotal.toFixed(2)} Forma de Pagamento: ${metodoPagamento}, Meu Endereço: ${endereco}`
+            let textoPedido = `Olá, meu chamo ${nomeCompleto}, acabei de fazer um pedido no seu site. Pedido: ${pedido}, Valor Total: ${precoTotal.toFixed(2)} Forma de Pagamento: ${metodoPagamento}, Meu Endereço: ${endereco}`
             modal.classList.remove('active'); // desativa o modal ao finalizar compra
             modal.style.display = 'none'; // fecha a vizualização do modal
             wwpMessage (buttonSubmit, textoPedido); // envia a mensagem de compra de item ao whatsapp da empresa.
@@ -122,8 +131,8 @@ cor.forEach(button => {
 var quant = 0; // variavel para incrementar quantidade ao adicionar ao carrinho 
 var quantTotalItens = -1; // variavel que irá armazenar o total de itens 
 var carrinho = []; // array que armazena os itens do carrinho 
-var precoTotal = 0; // variavel que para armazenar o total do pedido 
-function adicionarAoCarrinho(nome, preco, tamanho, selectColor) { // function de adiocionar item ao carrinho 
+var precoTotal = 0; // variavel que para armazenar o total do pedido
+function adicionarAoCarrinho(nome, preco, tamanho, selectColor) { // function de adiocionar item ao carrinho
         if (selectColor == null) { 
             alert('Selecione a cor!'); 
         } else { 
@@ -193,9 +202,6 @@ function verCar(a, b, quantidade, corOn, tamanho) {
     newList = `${a}, ${corOn}, ${tamanho}`; //cria a newList com base nos dados do item adicionado
     valid.forEach(function(lista) {
         let detalhesCar = lista.querySelectorAll('span');
-        let nomeAtual = '';
-        let corAtual = '';
-        let tamanhoAtual = '';
         detalhesCar.forEach(function(span) {
             if (span.classList.contains('itemCarNome')) {
                 nomeAtual = span.textContent;
@@ -226,9 +232,9 @@ function verCar(a, b, quantidade, corOn, tamanho) {
         corCar.textContent = `Cor: ${corOn}`;
         tam.textContent = `Tamanho: ${tamanho}`;
         btnAbrirCar.appendChild(li); // cria a lista visual no carrinho
-        li.appendChild(menos).classList.add('retirar');
+        //li.appendChild(menos).classList.add('retirar');
         li.appendChild(qtdCar).classList.add('itemQtd');
-        li.appendChild(mais).classList.add('adicionar');
+        //li.appendChild(mais).classList.add('adicionar');
         li.appendChild(verNome).classList.add('itemCarNome');
         li.appendChild(corCar).classList.add('itemCarCor');
         li.appendChild(tam).classList.add('itemCarTamanho');
