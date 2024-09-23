@@ -503,6 +503,7 @@ section { /* definindo estilização, background, ajuste de posição e orienta�
         }
         & .item {
             width: 270px;
+            height: 500px;
         }
         & .item:hover {
             background-color: #d9d9ed;
@@ -529,10 +530,14 @@ section { /* definindo estilização, background, ajuste de posição e orienta�
                 margin-bottom: 1rem;
                 text-decoration: underline;
             }
-            h5 {
-                font-size: 1.8rem;
+            & h5 {
+                font-size: 1.1rem;
                 color: #414141;
                 text-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+                margin: auto;
+            }
+            & #topdesc {
+                margin-top: 2.6rem;
                 margin-bottom: 1rem;
             }
             & .dados {
@@ -558,6 +563,9 @@ section { /* definindo estilização, background, ajuste de posição e orienta�
                         }
                         & #rosa {
                             background-color: #ff00dd;
+                        }
+                        & #whitered {
+                            background-image: linear-gradient(-135deg, #DFE0DB 50%, #6C1729 50%);
                         }
                         & button {
                             cursor: pointer;
