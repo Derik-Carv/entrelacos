@@ -564,7 +564,7 @@ section { /* definindo estilização, background, ajuste de posição e orienta�
                         & #rosa {
                             background-color: #ff00dd;
                         }
-                        & #whitered {
+                        & #BrancoVermelho {
                             background-image: linear-gradient(-135deg, #DFE0DB 50%, #6C1729 50%);
                         }
                         & button {
