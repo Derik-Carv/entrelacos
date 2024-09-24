@@ -567,6 +567,21 @@ section { /* definindo estilização, background, ajuste de posição e orienta�
                         & #BrancoVermelho {
                             background-image: linear-gradient(-135deg, #DFE0DB 50%, #6C1729 50%);
                         }
+                        & #BrancaComRosas {
+                            background-image: linear-gradient(-135deg, #0C622F 30%, #63080D 60%, #F2F0EB 15% );
+                        }
+                        & #pinkbaby {
+                            background-color: #DC89A0;
+                        }
+                        & #WhiteHeart {
+                            background-image: linear-gradient(-135deg, #CCC5B0 60%, #63080D 40%);
+                        }
+                        & #bege {
+                            background-color: #A28B69;
+                        }
+                        & #VerdePetroleo {
+                            background-color: #0E3F55;
+                        }
                         & button {
                             cursor: pointer;
                             width: 25px;
