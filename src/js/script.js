@@ -271,7 +271,7 @@ function wwpMessage (a, b) {
         alert(`Prencha o campo corretamente.`)
     } else {
         let msgContatURI = encodeURI(b)
-        let tel = '5591988502326'
+        let tel = '5591987597762'
         a.href = `https://wa.me/${tel}?text=${msgContatURI}`
     }
 }
