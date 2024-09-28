@@ -173,7 +173,6 @@ function adicionarAoCarrinho(nome, preco, tamanho, selectColor) { // function de
 document.querySelectorAll('.cores .cor').forEach(corSelecionada => { // faz uma varredura na div para achar o button em questão
     corSelecionada.addEventListener('click', function() { // function para mudar a imagem de acordo com a cor
         this.parentNode.parentNode.parentNode.parentNode.querySelector('img').src = 'src/pictures/' + this.name + '-' + this.id + '.jpg' // muda o source da imagem para a cor seleciona
-        console.log(this.name, this.id)
     });
 });
 let btnAbrirCar = document.querySelector('.janela'); // abrir o carrrinho para ver as compras.
