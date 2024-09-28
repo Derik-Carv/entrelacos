@@ -97,8 +97,11 @@ function finalizarCompra() { // function de chamar vizualização de itens e ing
         buttonSubmit.addEventListener('click', () => {  // ação de pagamento ao clicar no button pagar
             alert('Você será encaminhado para o Whatsapp da Entreleços Crochê.')
             let pedido = '' // declarando variavel vazia para receber itens de mensagem para o whatsapp
+            carrinho.forEach((item)=>{
+                pedido += `${item.quantidade} ${item.nome}, da cor ${item.cor} e ${item.tamanho}  ; `
+            })
                 modal.querySelectorAll('li').forEach((item)=>{ // pegando os itens ativos no carrinho
-                    if (item.style.display != 'none' && item.className == 'itensCar') { // pega somente o svisiveis ativos.
+                    if (item.style.display != 'none' && item.className == 'itensCar' && item.className != `resume`) { // pega somente o svisiveis ativos.
                         let qtdPedido = item.querySelector('.itemQtd')
                         let nomePedido = item.querySelector('.itemCarNome')
                         let corPedido = item.querySelector('.itemCarCor')
