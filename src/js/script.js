@@ -264,7 +264,9 @@ let contatos = document.querySelector('.contatos-sessao a')
 let msgContato = `Olá, gostaria de me informar mais sobre a Entrelaços Crochê. Poderia me ajudar?`
 wwpMessage(contatos ,msgContato)
 let btnEncomenda = document.querySelector('.btnEncomenda').addEventListener('click', () => {
-    let textoEncomenda = document.querySelector('textarea#observacao').value
+    let textoClienteEncomenda = document.querySelector('textarea#observacao').value
+    let textoPreEncomenda = `Olá, vim site solicitar esta encomenda: `
+    let textoEncomenda = `${textoPreEncomenda}${textoClienteEncomenda}`
     let linkEncomenda = document.querySelector('.encomenda div a')
     wwpMessage(linkEncomenda, textoEncomenda)
 })
