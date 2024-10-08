@@ -109,7 +109,7 @@ function finalizarCompra() { // function de chamar vizualização de itens e ing
                         pedido += `${qtdPedido.textContent} ${nomePedido.textContent}, da ${corPedido.textContent} e ${tamanhoPedido.textContent}  ; ` // pedido será adicionado na mensagem para o whatsapp
                     }
                 })
-            let textoPedido = `Olá, meu chamo ${nomeCompleto}, acabei de fazer um pedido no seu site. Pedido: ${pedido}, Valor Total: ${precoTotal.toFixed(2)} Forma de Pagamento: ${metodoPagamento}, Meu Endereço: ${endereco}`
+            let textoPedido = `Olá, me chamo ${nomeCompleto}, acabei de fazer um pedido no seu site. Pedido: ${pedido}, Valor Total: ${precoTotal.toFixed(2)} Forma de Pagamento: ${metodoPagamento}, Meu Endereço: ${endereco}`
             modal.classList.remove('active'); // desativa o modal ao finalizar compra
             modal.style.display = 'none'; // fecha a vizualização do modal
             wwpMessage (buttonSubmit, textoPedido); // envia a mensagem de compra de item ao whatsapp da empresa.
